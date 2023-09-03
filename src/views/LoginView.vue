@@ -68,9 +68,8 @@ import global from '@/components/VueCommon.vue';
           if (response.data.message == "登入成功") {
             localStorage.setItem('uId_token', response.data.token)
             localStorage.setItem('uId', that.uId)
-            var lasturl = localStorage.getItem('LastUrl')
-            localStorage.removeItem('LastUrl')
-            window.location.href=lasturl
+            this.$router.go(-1)
+            
           }
           else {
             that.msg=response.data.message

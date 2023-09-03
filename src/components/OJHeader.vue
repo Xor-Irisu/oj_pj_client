@@ -9,7 +9,7 @@
     active-text-color="#fff"
     :ellipsis="false"
   >
-    <el-menu-item index="1">首页</el-menu-item>
+    <el-menu-item index="1" @click="toHome">首页</el-menu-item>
     <el-menu-item index="2">题库</el-menu-item>
     <el-menu-item index="3">比赛</el-menu-item>
     <div class="right" />
@@ -56,12 +56,13 @@
       this.$router.push('/UserInfo' + '?uId=' + this.uid)
       window.location.href = global.httpUrl + '/UserInfo?uId=' + this.uid
     },
+    toHome: function () {
+      this.$router.push('/')
+    },
     toLogin: function () {
-      localStorage.setItem('LastUrl',window.location.href)
       this.$router.push('/login')
     },
     toRegister: function () {
-      localStorage.setItem('LastUrl',window.location.href)
       this.$router.push('/register')
     }
   },
