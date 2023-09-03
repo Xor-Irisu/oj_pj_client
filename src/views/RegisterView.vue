@@ -70,7 +70,7 @@ import global from '@/components/VueCommon.vue';
           if (response.data.message == "注册成功") {
             localStorage.setItem('uId_token', response.data.token)
             localStorage.setItem('uId', that.uId)
-            this.$router.go(-1)
+            that.$router.back()
           }
           else {
             that.msg=response.data.message
