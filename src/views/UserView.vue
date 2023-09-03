@@ -231,7 +231,7 @@ import global from '@/components/VueCommon.vue';
                 formData.append('uEmail', that.uEmail);
                 formData.append('uTitle', that.uTitle);
                 formData.append('uHead', that.uHead);
-                axios.post(url+'/users/editinfo',formData)
+                axios.post(`${url}/users/editinfo`,formData)
                 .then(function (response) {
                     console.log(response.data);
                     if (response.data.message == "token错误") {
