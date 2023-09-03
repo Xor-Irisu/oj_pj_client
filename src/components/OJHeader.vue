@@ -12,6 +12,7 @@
     <el-menu-item index="1">首页</el-menu-item>
     <el-menu-item index="2">题库</el-menu-item>
     <el-menu-item index="3">比赛</el-menu-item>
+    <el-menu-item index="3">队伍</el-menu-item>
     <div class="right" />
     <el-menu-item index="4" v-show=!uid>登录</el-menu-item>
     <el-menu-item index="5" v-show=!uid>注册</el-menu-item>

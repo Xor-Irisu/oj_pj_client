@@ -7,7 +7,7 @@
             <el-button type="primary" @click="jump()">创建团队</el-button>
         </div>
         <br/>
-        <el-table :data="teamdata" style="width:100%">
+        <el-table :data="teamdata" style="width:100%" border>
         <el-table-column width="250px" prop="tId" label="队伍编号"></el-table-column>
         <el-table-column width="250px" prop="tName" label="队长名字"></el-table-column>
         <el-table-column width="250px" prop="tBrief" label="队伍描述"></el-table-column>
@@ -17,8 +17,12 @@
 </template>
 <script>
     import axios from 'axios'
+    import Header from '@/components/OJHeader.vue'
     export default {
         name:'TeamPage',
+        components: {
+            Header,
+        },
         data(){
             return{
                 server_url: "http://127.0.0.1:3000",
@@ -40,7 +44,6 @@
                 })
                 .catch(function(error){
                     console.log(error);
-                    alert("获取失败");
                 });           
             console.log(this.teamdata);
         }
