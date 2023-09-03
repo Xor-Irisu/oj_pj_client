@@ -68,7 +68,7 @@ import global from '@/components/VueCommon.vue';
           if (response.data.message == "登入成功") {
             localStorage.setItem('uId_token', response.data.token)
             localStorage.setItem('uId', that.uId)
-            this.$router.go(-1)
+            that.$router.back()
             
           }
           else {
