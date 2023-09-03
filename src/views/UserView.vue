@@ -222,6 +222,7 @@ import global from '@/components/VueCommon.vue';
                 var that=this
                 var url = this.server_url
                 var formData = new URLSearchParams();
+                formData.append('uId_token',localStorage.getItem('uId_token'))
                 formData.append('uId', that.uId);//可以这样存放要post的信息
                 formData.append('uInfo', that.uInfo)
                 formData.append('uName', that.uName)
@@ -233,6 +234,10 @@ import global from '@/components/VueCommon.vue';
                 axios.post(url+'/users/editinfo',formData)
                 .then(function (response) {
                     console.log(response.data);
+                    if (response.data.message == "token错误") {
+                        global.clear_info()
+                        location.reload()
+                    }
                 })
                 .catch(function (error) {
                     console.log(error);
