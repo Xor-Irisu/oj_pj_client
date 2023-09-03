@@ -3,9 +3,10 @@
   <div class="MainPage">
       <OJHeader/>
       <div class="LoginBox">
-        <el-input v-model="uId" placeholder="账号" class="InputBox"/><br>
+        <el-input v-model="uId" placeholder="ID" class="InputBox"/><br>
         <el-input v-model="uPw" placeholder="密码" class="InputBox"/><br>
-        <el-button  type="primary" class="Button" @click="login">登录</el-button>
+        <el-input v-model="uPw2" placeholder="确认密码" class="InputBox"/><br>
+        <el-button  type="primary" class="Button" @click="login">注册</el-button>
       </div>
   </div>
 </template>
@@ -62,10 +63,11 @@ import global from '@/components/VueCommon.vue';
         var formData = new URLSearchParams();
         formData.append('uId', that.uId);//可以这样存放要post的信息
         formData.append('uPw', that.uPw);//可以这样存放要post的信息
-        axios.post(that.server_url+'/users/login',formData)                             //放数据的接口
+        formData.append('uPw2', that.uPw2);//可以这样存放要post的信息
+        axios.post(that.server_url+'/users/Register',formData)                             //放数据的接口
         .then(function (response) {                         //收到的数据
           console.log(response);                    //response就是返回数据
-          if (response.data.message == "登入成功") {
+          if (response.data.message == "注册成功") {
             localStorage.setItem('uId_token', response.data.token)
             localStorage.setItem('uId', that.uId)
             var lasturl = localStorage.getItem('LastUrl')
@@ -87,6 +89,7 @@ import global from '@/components/VueCommon.vue';
       return {
         uId: "",
         uPw: "",
+        uPw2: "",
         msg:"",
         server_url:global.serverUrl
       }
