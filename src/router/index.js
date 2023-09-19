@@ -47,6 +47,31 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/RegisterView.vue')
   },
+  {
+    path: '/passages',
+    name: 'passages',
+    component: () => import('../views/PassagesView.vue')
+  },
+  {
+    path: '/passage',
+    name: 'passage',
+    component: () => import('../views/PassageView.vue')
+  },
+  {
+    path: '/createpassage',
+    name: 'createpassage',
+    component: () => import('../views/CreatePassageView.vue')
+  },
+  {
+    path: '/problems',
+    name: 'Problems',
+    component: () => import('../views/ProblemsView.vue')
+  },
+  {
+    path: '/problem',
+    name: 'Problem',
+    component: () => import('../views/ProblemView.vue')
+  },
 ]
 
 const router = createRouter({
