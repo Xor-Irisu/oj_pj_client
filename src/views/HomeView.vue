@@ -1,4 +1,3 @@
-
 <template>
     <div class="MainPage">
         <OJHeader/>
@@ -19,7 +18,10 @@
   import global from '@/components/VueCommon.vue';
   import axios from 'axios'
   export default {
-    name: 'TestView',
+  name: 'TestView',
+    mounted: function () {
+      
+    },
     components: {
       OJHeader,
       MarkDownBox
@@ -33,7 +35,7 @@
     },
     data() {
         return {
-            server_url:"http://127.0.0.1:3000"
+            server_url:global.serverUrl
         }
     }
     , watch: {

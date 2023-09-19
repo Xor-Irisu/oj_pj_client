@@ -19,7 +19,7 @@
     <el-sub-menu index="6" v-show=uid>
       <template #title>{{ uid }}</template>
       <el-menu-item index="6-1" @click="info">个人信息</el-menu-item>
-      <el-menu-item index="6-1">我的团队</el-menu-item>
+      <el-menu-item index="6-1" @click="team">我的团队</el-menu-item>
       <el-menu-item index="6-1">私信</el-menu-item>
       <el-menu-item index="6-2" @click="logout">登出</el-menu-item>
     </el-sub-menu>
@@ -65,6 +65,9 @@
     },
     toRegister: function () {
       this.$router.push('/register')
+    },
+    team: function(){
+      this.$router.push('/team')
     }
   },
   computed: {
