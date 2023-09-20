@@ -1,17 +1,43 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
 
+<template>
+    <div class="MainPage">
+        <OJHeader/>
+      </div>
+</template>
+<style scoped>
+    .MainPage{
+        margin-left:5%;
+        margin-right:5%;
+        background:#F4F5F7;
+        height:auto;
+        padding-bottom:100px;
+    }
+</style>
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld,
+  import OJHeader from '@/components/OJHeader.vue'
+  import MarkDownBox from '@/components/Markdown.vue'
+  import global from '@/components/VueCommon.vue';
+  import axios from 'axios'
+  export default {
+    name: 'TestView',
+    components: {
+      OJHeader,
+      MarkDownBox
+    },
+    methods: {
+        example_function: function () {
+        }
+    },
+    computed: {
+
+    },
+    data() {
+        return {
+            server_url:"http://127.0.0.1:3000"
+        }
+    }
+    , watch: {
+        
+    }
   }
-}
 </script>
