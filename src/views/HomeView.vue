@@ -1,7 +1,12 @@
 <template>
     <div class="MainPage">
         <OJHeader/>
-      </div>
+        <ul>
+            <li v-for="passage in TopPassages" :key=passage.pId>
+              <PassageBox :pId="passage.pId"></PassageBox>
+            </li>
+        </ul>
+    </div>
 </template>
 <style scoped>
     .MainPage{
@@ -11,20 +16,35 @@
         height:auto;
         padding-bottom:100px;
     }
+    .MainPage li{
+      list-style:none;
+    }
 </style>
 <script>
   import OJHeader from '@/components/OJHeader.vue'
-  import MarkDownBox from '@/components/Markdown.vue'
+import MarkdownBox from '@/components/Markdown.vue'
+import PassageBox from '@/components/PassageBox.vue';
   import global from '@/components/VueCommon.vue';
-  import axios from 'axios'
+import axios from 'axios'
+  
   export default {
-  name: 'TestView',
+  name: 'HomeView',
     mounted: function () {
-      
+      var that=this
+      var url = this.server_url
+      axios.post(url+'/passages/TopPassage')                             //放数据的接口
+      .then(function (response) {                         //收到的数据
+          console.log(response);                    //response就是返回数据
+        that.TopPassages = response.data;   
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
     },
     components: {
       OJHeader,
-      MarkDownBox
+      MarkdownBox,
+      PassageBox
     },
     methods: {
         example_function: function () {
@@ -34,9 +54,10 @@
 
     },
     data() {
-        return {
-            server_url:global.serverUrl
-        }
+      return {
+        server_url: global.serverUrl,
+        TopPassages:{}
+      }
     }
     , watch: {
         
