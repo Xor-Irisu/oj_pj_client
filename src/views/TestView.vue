@@ -60,8 +60,7 @@ import { marked } from "marked";
             markdown: "# Hello World\n\nThis is a **Markdown** editor.",
             html:""
         }
-    }
-    , watch: {
+    }, watch: {
         markdown(value) {
         this.html = marked(value);
     }
