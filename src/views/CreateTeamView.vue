@@ -103,6 +103,6 @@
         margin-top: 5%;
         height:600px;
         text-align: center;
-        background-image: url('E:\vpn\workspace\oj_pj_client\src\assets\logo.png');
+        /*background-image: url('E:\vpn\workspace\oj_pj_client\src\assets\logo.png');*/
     }
 </style>
