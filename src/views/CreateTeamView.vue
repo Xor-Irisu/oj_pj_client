@@ -6,8 +6,11 @@
             <h1>团队名称：</h1>
             <input type="text" value="" placeholder="请输入团队名称" ref="tName">
             <h1>团队介绍：</h1>
-            <input type="text" value="" placeholder="请输入团队介绍" ref="tBrief"
-            style="height:500px;width:200px;">
+            <!-- <input type="textarea" :row="2" value="" placeholder="请输入团队介绍" ref="tBrief"
+            style="height:500px;width:200px;"> -->
+            <el-input type="textarea" :rows="20" placeholder="请输入团队介绍" v-model="tBrief"
+            maxlength="200" show-word-limit>
+            </el-input>
             <br/><br/><br/><br/>
             <input type="checkbox" id="check" v-model="is_checked">
             <label for="check">我已确认所有信息准确无误</label>
@@ -32,6 +35,7 @@
 <script>
     import axios from 'axios'
     import Header from '@/components/OJHeader.vue'
+    import global from '@/components/VueCommon.vue';
   export default {
     name: 'CreateTeamView',
     components: {
@@ -42,29 +46,34 @@
             server_url: "http://127.0.0.1:3000",
             tName:"",
             tBrief:"",
-            is_checked:false
+            is_checked:false,
+            uId:"",
+            utoken:""
         }
     },
     methods: {
         create_function: function(){
             this.tName=this.$refs.tName.value;
-            this.tBrief=this.$refs.tBrief.value;
+            //this.tBrief=this.$refs.tBrief.value;
+            this.uId=localStorage.getItem('uId');
+            this.utoken=localStorage.getItem('uId_token');
             if(this.tName=="")alert("请输入团队名称");
             else if(this.tBrief=="")alert("请输入团队介绍");
             else if(this.is_checked==false)alert("请勾选确认框");
             else{var that=this 
                 axios.post(that.server_url+'/team/createteam',
                 {tName:this.tName,
-                 tBrief:this.tBrief   
+                 tBrief:this.tBrief,
+                 uId:this.uId,
+                 utoken:this.utoken
                 })
                 .then(function(response){
                     console.log(response);
                     alert("创建成功");
-                    that.$router.push({
-                        path:'/team'
-                    })
+                    that.$router.back();
                 })
                 .catch(function(error){
+                    alert("失败");
                     console.log(error);
                     that.$router.push({
                         path:'/team'
@@ -91,7 +100,7 @@
         position:relative;
         width: 50%;
         margin-left: 50%;
-        margin-top: -70%;
+        margin-top: -65%;
         height:50%;
         text-align: center;
     }

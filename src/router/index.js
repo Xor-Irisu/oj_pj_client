@@ -88,6 +88,26 @@ const routes = [
     name: 'Problem',
     component: () => import('../views/ProblemView.vue')
   },
+  {
+    path: '/contest',
+    name: 'contest',
+    component: () => import('../views/ContestView.vue')
+  },
+  {
+    path: '/createcontest',
+    name: 'createcontest',
+    component: () => import('../views/CreateContestView.vue')
+  },
+  {
+    path: '/contestmore',
+    name: 'contestmore',
+    component: () => import('../views/ContestMore.vue')
+  },
+  {
+    path: '/transfer',
+    name: 'transfer',
+    component: () => import('../views/transfer.vue')
+  },
 ]
 
 const router = createRouter({
