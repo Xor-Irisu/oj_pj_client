@@ -4,9 +4,9 @@
     active-text-color="#fff" :ellipsis="false">
     <el-menu-item index="1" @click="toPage('')">首页</el-menu-item>
     <el-menu-item index="2" @click="toPage('problems')">题库</el-menu-item>
-    <el-menu-item index="3">比赛</el-menu-item>
-    <el-menu-item index="3">队伍</el-menu-item>
+    <el-menu-item index="3" @click="toPage('team')">队伍</el-menu-item>
     <el-menu-item index="4" @click="toPage('passages')">讨论板</el-menu-item>
+    <el-menu-item index="5" @click="toPage('contest')">比赛</el-menu-item>
     <div class="right" />
     <el-menu-item index="4" v-show=!uid @click="toPage('login')">登录</el-menu-item>
     <el-menu-item index="5" v-show=!uid @click="toPage('register')">注册</el-menu-item>
