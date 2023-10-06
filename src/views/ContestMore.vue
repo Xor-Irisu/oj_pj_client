@@ -15,16 +15,18 @@
 import OJHeader from '@/components/OJHeader.vue'
 import MarkDownBox from '@/components/Markdown.vue'
 import global from '@/components/VueCommon.vue';
+import ContestBox from '@/components/ContestBox.vue';
 import axios from 'axios'
 export default {
     name: 'ContestMore',
     components: {
         OJHeader,
         MarkDownBox,
+        ContestBox,
     },
     mounted:function(){
         var query = this.$route.query;
-        this.pId = query.cId
+        this.cId = query.cId
         this.get_contest(this.cId);
     },
     data(){
@@ -32,6 +34,11 @@ export default {
             server_url: global.serverUrl,
             activeName: "first",
             ProblemPack: {},
+            cId:1003,
+            cName:"",
+            cBrief:"",
+            cBeginTime:"",
+            cEndTime:"",
         }
     },
     methods:{

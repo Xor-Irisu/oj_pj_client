@@ -99,7 +99,7 @@ export default {
     },
     components: {
         OJHeader,
-        MarkDownBox
+        MarkDownBox,
     },
     methods: {
         example_function: function () {

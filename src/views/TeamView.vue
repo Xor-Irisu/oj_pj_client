@@ -5,10 +5,12 @@
         <h2>我加入的团队</h2>
         <div class="button_container">
             <el-button type="primary" @click="jump()">创建团队</el-button>
+            <el-button type="primary" @click="jump2()">加入团队</el-button>
+            <el-button type="primary" @click="jump3()">查看申请</el-button>
         </div>
         <br/>
         <el-table :data="teamdata" style="width:100%" border stripe>
-        <el-table-column width="250px" prop="tId" label="队伍编号"></el-table-column>
+        <el-table-column width="250px" prop="tId" label="编号"></el-table-column>
         <el-table-column width="250px" prop="tName" label="队长名字"></el-table-column>
         <el-table-column width="250px" prop="tBrief" label="队伍描述"></el-table-column>
         <el-table-column width="250px" prop="tType" label="角色"></el-table-column>
@@ -42,6 +44,16 @@
             jump() {
                 this.$router.push({
                     path:'/createteam'
+                })
+            },
+            jump2() {
+                this.$router.push({
+                    path:'/allteam'
+                })
+            },
+            jump3() {
+                this.$router.push({
+                    path:'/apply'
                 })
             },
             deleteteam(tName) {
