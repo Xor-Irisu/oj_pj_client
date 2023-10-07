@@ -4,6 +4,10 @@
         <Header/>
         <h2>申请列表</h2>
         <br/>
+        <div class="button_container">
+            <el-button type="primary" @click="jump()">返回</el-button>
+        </div>
+        <br/>
         <el-table :data="teamdata" style="width:100%" border stripe>
         <el-table-column width="250px" prop="uId" label="申请人"></el-table-column>
         <el-table-column width="250px" prop="tName" label="申请队伍名称"></el-table-column>
@@ -34,6 +38,9 @@
             }
         },
         methods:{
+            jump() {
+                this.$router.back();
+            },
             yes(row){
                 var that=this
                 var formData = new URLSearchParams();
@@ -84,3 +91,10 @@
         }
     }
 </script>
+<style>
+.button_container{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+</style>

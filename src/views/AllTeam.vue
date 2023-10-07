@@ -4,6 +4,10 @@
         <Header/>
         <h2>可加入团队</h2>
         <br/>
+        <div class="button_container">
+            <el-button type="primary" @click="jump()">返回</el-button>
+        </div>
+        <br/>
         <el-table :data="teamdata" style="width:100%" border stripe>
         <el-table-column width="250px" prop="tId" label="编号"></el-table-column>
         <el-table-column width="250px" prop="tName" label="队长名字"></el-table-column>
@@ -34,6 +38,9 @@
             }
         },
         methods:{
+            jump() {
+                this.$router.back();
+            },
             applyteam(tName){
                 var that=this
                 var formData = new URLSearchParams();
