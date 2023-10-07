@@ -85,6 +85,7 @@
     height: auto;
     padding-bottom: 100px;
 }
+
 </style>
 <script>
 import OJHeader from '@/components/OJHeader.vue'
@@ -92,9 +93,14 @@ import MarkDownBox from '@/components/Markdown.vue'
 import global from '@/components/VueCommon.vue';
 import axios from 'axios'
 
+
+
 export default {
-    name: 'ProblemView',
+
+    name: 'ContestBox',
     mounted: function () {
+        // console.log(22222222222)
+        // console.log(this.ProblemPack)
         this.get_porblem(this.ProblemPack)
     },
     components: {
@@ -105,6 +111,8 @@ export default {
         example_function: function () {
         },
         get_porblem(packet) {
+            // console.log(1111111111111)
+            // console.log(packet)
             this.cName = packet.cName;
             this.cBrief = packet.cBrief;
             this.cBeginTime = packet.cBeginTime;
